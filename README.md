@@ -1,2 +1,2 @@
-# SoftUni-Java-Cources-LabsAndExercises
+# SoftUni Java Cources LabsAndExercises
 SoftUni - trainings and exercises. 
