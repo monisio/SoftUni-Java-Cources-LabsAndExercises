@@ -18,8 +18,8 @@ public class E03Pirates {
             List<Integer> town = towns.get(tokens[0]);
 
             if (town != null) {
-                Integer currentPopulation = town.get(1);
-                Integer currentGold = town.get(2);
+                Integer currentPopulation = town.get(0);
+                Integer currentGold = town.get(1);
                 town.set(0, currentPopulation + Integer.parseInt(tokens[1]));
                 town.set(1, currentGold + Integer.parseInt(tokens[2]));
 
@@ -59,7 +59,7 @@ public class E03Pirates {
                     if (goldToAdd >= 0) {
                         currentTown.set(1, gold + goldToAdd);
 
-                        message = String.format("%d gold added to the city treasury. %s now has %d gold", goldToAdd, commands[1], currentTown.get(1));
+                        message = String.format("%d gold added to the city treasury. %s now has %d gold.", goldToAdd, commands[1], currentTown.get(1));
 
                     } else {
                         message = "Gold added cannot be a negative number!";
@@ -72,7 +72,7 @@ public class E03Pirates {
             System.out.println(message);
 
             if(currentTown.contains(0)){
-                towns.remove(commands[0]);
+                towns.remove(commands[1]);
                 System.out.println( commands[1] +" has been wiped off the map!");
             }
 
@@ -85,7 +85,6 @@ public class E03Pirates {
 
             towns.entrySet().stream()
                     .sorted((e1,e2)-> e2.getValue().get(1).compareTo(e1.getValue().get(1)))
-                    .sorted(Comparator.comparing(Map.Entry::getKey))
                     .forEach(e -> System.out.printf("%s -> Population: %d citizens, Gold: %d kg%n", e.getKey(), e.getValue().get(0), e.getValue().get(1)));
 
 
