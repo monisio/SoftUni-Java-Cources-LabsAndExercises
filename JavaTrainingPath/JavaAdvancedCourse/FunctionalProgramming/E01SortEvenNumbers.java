@@ -14,6 +14,9 @@ public class E01SortEvenNumbers {
                 .filter(e -> e % 2 == 0)
                 .collect(Collectors.toList());
 
+        // 2nd way of filtering even numbers -> input.removeIf(n-> n % 2 != 0) (example usage og Predicate lambda)
+        // 2nd way of sorting -> input.sort(Integer::compareTo)
+
         System.out.println(input.toString().replaceAll("[\\[\\]]", ""));
 
         Collections.sort(input);
