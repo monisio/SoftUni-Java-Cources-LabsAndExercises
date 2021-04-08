@@ -1,10 +1,9 @@
 package JavaAdvancedCourse.FunctionalProgramming;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-import java.util.function.Consumer;
+import java.util.*;
+import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class E05FilterByAge {
 
@@ -17,18 +16,6 @@ public class E05FilterByAge {
             this.age = age;
         }
 
-        public static Person parsePerson(String input) {
-            String[] info = input.split(", ");
-            return new Person(info[0], Integer.parseInt(info[1]));
-        }
-
-        public int getAge(){
-            return this.age;
-        }
-
-        public String getName(){
-            return this.name;
-        }
 
     }
 
@@ -39,45 +26,69 @@ public class E05FilterByAge {
 
         int n = Integer.parseInt(scanner.nextLine());
 
+        Function<String, Person> parsePerson = str -> {
+            String[] tokens = str.split(", ");
+            return new Person(tokens[0], Integer.parseInt(tokens[1]));
+
+        };
+
         List<Person> personList = new ArrayList<>();
 
         while (n-- != 0) {
 
-            Person newPerson = Person.parsePerson(scanner.nextLine());
+            personList.add(parsePerson.apply(scanner.nextLine()));
 
-            personList.add(newPerson);
 
         }
 
 
         String factor = scanner.nextLine();
-        int age = Integer.parseInt(scanner.nextLine());
+        int ageCondition = Integer.parseInt(scanner.nextLine());
         String format = scanner.nextLine();
-        Predicate<Integer> checkAge = getFunction(factor, age);
-        Consumer<String> printing = getPrintingFormat(format);
+
+        personList = factor.equals("older")
+                ? filterPeople(personList, p -> p.age >= ageCondition)
+                : filterPeople(personList, p -> p.age <= ageCondition);
 
 
+
+
+        System.out.println(printCollection(personList, getFormatterFunction(format)
+                                             , System.lineSeparator()));
     }
 
-    private static Consumer<String> getPrintingFormat(String format) {
 
-        switch (format) {
+    //factory method for generating function below
+    private static Function<Person, String> getFormatterFunction(String format) {
+
+        switch (format){
             case "name":
-                return p-> System.out.println();
+                return person -> person.name;
             case "age":
-
-                return
-
+                return person -> String.valueOf(person.age);
             case "name age":
-                return
+                return person -> person.name + " - " +person.age;
+            default:
+                throw new IllegalStateException("Unknown format type "+format);
         }
 
     }
 
+    public static List<Person> filterPeople(Collection<Person> persons, Predicate<Person> criteria) {
 
-    public static Predicate<Integer> getFunction(String factor, int age) {
+        return persons.stream()
+                .filter(criteria)
+                .collect(Collectors.toList());
 
-
-        return factor.equals("older") ? n -> n > age : n -> n < age;
     }
+
+    public static String printCollection (Collection<Person> people,Function<Person,String>filter , String delimiter){
+
+       return  people.stream()
+               .map(p->filter.apply(p))
+               .collect(Collectors.joining(delimiter));
+
+
+    }
+
 }
