@@ -20,14 +20,21 @@ public class E04AppliedArithmetics {
 
         while (!command.equals("end")){
 
+
+            if(command.equals("print")){
+                System.out.println(inputNumbers.stream().map(String::valueOf).collect(Collectors.joining(" ")));
+            }else{
+
                  inputNumbers = inputNumbers.stream().map(getFunction(command)).collect(Collectors.toList());
+
+            }
+
 
 
             command= scanner.nextLine();
         }
 
 
-        inputNumbers.forEach(e-> System.out.print(e+" "));
 
     }
 
