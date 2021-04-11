@@ -16,7 +16,6 @@ public class E07FindTheSmallestElement {
 
 
         Function<List<Integer>,Integer> findMinElementIndex = list->{
-
             int smallest = list.stream().mapToInt(e->e).min().getAsInt();
             return list.lastIndexOf(smallest);
 
