@@ -29,7 +29,7 @@ public class Car {
     @Override
     public String toString() {
        String output = this.model+":" +System.lineSeparator()+ this.engine.toString()
-                     +String.format("Weight: %d%nColor: %s%n",this.weight,this.color);
+                     +String.format("Weight: %d%nColor: %s",this.weight,this.color);
 
 
 

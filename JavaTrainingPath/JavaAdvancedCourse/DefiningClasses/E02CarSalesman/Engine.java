@@ -5,7 +5,7 @@ public class Engine {
     //model, power, displacement and efficiency
     //Engine's displacements and efficiency are optional
     private String model;
-    private int power;
+    private Integer power;
     private Integer displacement;
     private Character efficiency;
 
@@ -33,6 +33,6 @@ public class Engine {
     @Override
     public String toString() {
         return String.format("%s:%nPower: %d%nDisplacement: %d%nEfficiency: %c%n",
-                                this.model, this.displacement,this.power,this.efficiency);
+                                this.model, this.power,this.displacement,this.efficiency);
     }
 }
