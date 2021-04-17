@@ -32,11 +32,7 @@ public class Engine {
 
     @Override
     public String toString() {
-        return "Engine{" +
-                "model='" + model + '\'' +
-                ", power=" + power +
-                ", displacement=" + displacement +
-                ", efficiency=" + efficiency +
-                '}';
+        return String.format("%s:%nPower: %d%nDisplacement: %d%nEfficiency: %c%n",
+                                this.model, this.displacement,this.power,this.efficiency);
     }
 }

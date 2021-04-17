@@ -6,17 +6,17 @@ public class Car {
     //weight and color
     private String model;
     private Engine engine;
-    private Double weight;
+    private Integer weight;
     private String color;
 
-    public Car(String model, Engine engine, Double weight, String color) {
+    public Car(String model, Engine engine, Integer weight, String color) {
         this.model = model;
         this.engine = engine;
         this.weight = weight;
         this.color = color;
     }
 
-    public Car(String model, Engine engine, double weight) {
+    public Car(String model, Engine engine, int weight) {
         this(model, engine, weight, null);
     }
     public Car(String model, Engine engine,String color){
@@ -28,11 +28,15 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Car{" +
-                "model='" + model + '\'' +
-                ", engine=" + engine +
-                ", weight=" + weight +
-                ", color='" + color + '\'' +
-                '}';
+       String output = this.model+":" +System.lineSeparator()+ this.engine.toString()
+                     +String.format("Weight: %d%nColor: %s%n",this.weight,this.color);
+
+
+
+       if(output.contains("null")){
+         output = output.replaceAll("null", "n/a");
+       }
+
+       return output;
     }
 }
