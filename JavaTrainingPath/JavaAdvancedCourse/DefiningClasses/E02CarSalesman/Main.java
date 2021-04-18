@@ -27,15 +27,15 @@ public class Main {
                  createdEngine= new Engine(model, horsePower);
             }else if(input.length==3){
 
-                if(input[2].length()>1){
+                if(Character.isDigit(input[2].charAt(0))){
                     createdEngine=new Engine(model,horsePower, Integer.parseInt(input[2]));
                 }else {
-                    createdEngine= new Engine(model,horsePower, input[2].charAt(0));
+                    createdEngine= new Engine(model,horsePower, input[2]);
                 }
 
             }else if(input.length==4){
                 int displacement = Integer.parseInt(input[2]);
-                char efficiency = input[3].charAt(0);
+                String efficiency = input[3];
                 createdEngine = new Engine(model,horsePower,displacement,efficiency);
             }
 

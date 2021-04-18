@@ -7,10 +7,10 @@ public class Engine {
     private String model;
     private Integer power;
     private Integer displacement;
-    private Character efficiency;
+    private String efficiency;
 
 
-    public Engine(String model, Integer power, Integer displacement, Character efficiency) {
+    public Engine(String model, Integer power, Integer displacement, String efficiency) {
         this.model = model;
         this.power = power;
         this.displacement = displacement;
@@ -21,7 +21,7 @@ public class Engine {
         this(model, power, displacement, null);
     }
 
-    public Engine(String model, Integer power, Character efficiency) {
+    public Engine(String model, Integer power, String efficiency) {
         this(model, power, null, efficiency);
     }
 
@@ -32,7 +32,7 @@ public class Engine {
 
     @Override
     public String toString() {
-        return String.format("%s:%nPower: %d%nDisplacement: %d%nEfficiency: %c%n",
+        return String.format("%s:%nPower: %d%nDisplacement: %d%nEfficiency: %s%n",
                                 this.model, this.power,this.displacement,this.efficiency);
     }
 }
