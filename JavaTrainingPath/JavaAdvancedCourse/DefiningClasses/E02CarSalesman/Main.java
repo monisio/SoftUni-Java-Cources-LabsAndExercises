@@ -1,9 +1,6 @@
 package JavaAdvancedCourse.DefiningClasses.E02CarSalesman;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,13 +8,13 @@ public class Main {
 
 
         Map<String, Engine> enginesCollection = new HashMap<>();
-        Map<String, Car> carCollection = new LinkedHashMap<>();
+        List<Car> carCollection = new ArrayList<>();
 
 
         int n = Integer.parseInt(scanner.nextLine());
 
         for (int i = 0; i < n; i++) {
-            String [] input = scanner.nextLine().split("\\s");
+            String [] input = scanner.nextLine().split("\\s+");
             String model = input[0];
             int horsePower = Integer.parseInt(input[1]);
 
@@ -45,7 +42,7 @@ public class Main {
         int m = Integer.parseInt(scanner.nextLine());
 
         for (int i = 0; i <m ; i++) {
-            String[] input = scanner.nextLine().split("\\s");
+            String[] input = scanner.nextLine().split("\\s+");
             String model = input[0];
             String engineModel = input[1];
             Engine engine = enginesCollection.get(engineModel);
@@ -68,11 +65,11 @@ public class Main {
                 createdCar= new Car(model,engine,Integer.parseInt(input[2]), input[3]);
 
             }
-            carCollection.putIfAbsent(model, createdCar);
+            carCollection.add(createdCar);
         }
 
 
-        for (Car value : carCollection.values()) {
+        for (Car value : carCollection) {
 
             System.out.println(value.toString());
         }
