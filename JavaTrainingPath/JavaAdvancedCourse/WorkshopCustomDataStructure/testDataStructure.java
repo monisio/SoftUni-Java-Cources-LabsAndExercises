@@ -8,10 +8,12 @@ public class testDataStructure {
 
         SmartArray testCase = new SmartArray();
 
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i <= 100; i++) {
             testCase.add(i);
         }
 
-        System.out.println();
+        testCase.remove(0);
+
+        System.out.println(testCase.get(100));
     }
 }
