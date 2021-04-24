@@ -16,6 +16,12 @@ public class SmartArray {
 
     }
 
+    public int get(int index) {
+        validateIndex(index);
+        return this.elements[index];
+
+    }
+
     public void add(int element) {
         resize();
         this.elements[size] = element;
@@ -24,9 +30,18 @@ public class SmartArray {
 
     }
 
-    public int get(int index) {
+
+    public void add(int element , int index){
         validateIndex(index);
-        return this.elements[index];
+        resize();
+
+        for (int i = this.size ; i > index ; i--) {
+            this.elements[i] = this.elements[i-1];
+
+        }
+
+        this.elements[index] = element;
+        this.size++;
 
     }
 
@@ -38,9 +53,19 @@ public class SmartArray {
         }
         this.elements[this.size - 1] = 0;
         this.size--;
+
+        shrink();
+
     }
 
-
+    public boolean contains(int element){
+        for (int i = 0; i < size ; i++) {
+            if (this.elements[i]==element){
+                return true;
+            }
+        }
+        return false;
+    }
 
 
     private void validateIndex(int index) {
@@ -63,5 +88,19 @@ public class SmartArray {
         }
     }
 
+    private void shrink(){
+        if (this.size < this.capacity/2 && this.capacity/2 >= INITIAL_CAPACITY ){
+            this.capacity= this.capacity/2;
+            int[] shrink  = new int[this.capacity];
+
+            for (int i = 0; i < this.size; i++) {
+                shrink[i]= this.elements[i];
+            }
+
+            this.elements= shrink;
+
+        }
+
+    }
 
 }
