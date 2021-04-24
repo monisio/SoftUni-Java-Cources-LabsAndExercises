@@ -1,5 +1,7 @@
 package JavaAdvancedCourse.WorkshopCustomDataStructure;
 
+import java.util.function.Consumer;
+
 public class SmartArray {
 
     private static final int INITIAL_CAPACITY = 8;
@@ -65,6 +67,13 @@ public class SmartArray {
             }
         }
         return false;
+    }
+
+    public void forEach(Consumer<Integer> consumer){
+        for (int i = 0; i < this.size ; i++) {
+             consumer.accept(this.elements[i]);
+        }
+
     }
 
 
