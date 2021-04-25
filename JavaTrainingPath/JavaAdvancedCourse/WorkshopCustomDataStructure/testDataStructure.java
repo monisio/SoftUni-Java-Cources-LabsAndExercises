@@ -6,14 +6,17 @@ public class testDataStructure {
     public static void main(String[] args) {
 
 
-        SmartArray testCase = new SmartArray();
+        SmartStack testCase = new SmartStack();
 
-        for (int i = 0; i <= 16; i++) {
-            testCase.add(i);
-        }
+        testCase.push(1);
+        testCase.push(2);
+        testCase.push(3);
 
-        testCase.add(1000 , 0);
-        testCase.add(1000, 19);
-        System.out.println(testCase.contains(16));
+        System.out.println(testCase.peek());
+        System.out.println(testCase.pop());
+        System.out.println(testCase.peek());
+        System.out.println(testCase.pop());
+        System.out.println(testCase.pop());
+        System.out.println(testCase.peek());
     }
 }
