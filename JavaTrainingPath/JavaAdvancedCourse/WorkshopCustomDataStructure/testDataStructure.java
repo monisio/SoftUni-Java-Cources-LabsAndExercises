@@ -12,11 +12,10 @@ public class testDataStructure {
         testCase.push(2);
         testCase.push(3);
 
-        System.out.println(testCase.peek());
-        System.out.println(testCase.pop());
-        System.out.println(testCase.peek());
-        System.out.println(testCase.pop());
-        System.out.println(testCase.pop());
-        System.out.println(testCase.peek());
+        int[] ints = testCase.toArray();
+
+
+        System.out.println();
+
     }
 }

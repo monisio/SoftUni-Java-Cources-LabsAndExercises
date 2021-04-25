@@ -5,7 +5,20 @@ public class SmartStack {
     private int size;
     private Node top;
 
-    public SmartStack(){
+    private static class Node {
+        int value;
+        Node prev;
+
+
+        private Node(int value, Node top) {
+            this.value = value;
+            this.prev = top;
+        }
+
+
+    }
+
+    public SmartStack() {
     }
 
     public SmartStack(int element) {
@@ -19,8 +32,8 @@ public class SmartStack {
         return this.size;
     }
 
-    public boolean isEmpty(){
-       return size==0&&this.top==null;
+    public boolean isEmpty() {
+        return size == 0;
     }
 
     public void push(int element) {
@@ -29,39 +42,35 @@ public class SmartStack {
     }
 
     public int pop() {
-        if (!isEmpty()){
-            int element = this.top.value;
-            this.top = this.top.prev;
-            size--;
-            return element;
+        checkIfEmpty();
+        int element = this.top.value;
+        this.top = this.top.prev;
+        size--;
+        return element;
 
-        }else {
-            throw new IllegalStateException("No elements");
-        }
+
     }
 
     public int peek() {
-        if(!isEmpty()){
-            return this.top.value;
+        checkIfEmpty();
+        return this.top.value;
 
-        }else {
-            throw new IllegalStateException("No elements");
-        }
     }
 
-
-
-    private static class Node {
-        int value;
-        Node prev;
-
-
-        private Node(int value, Node top) {
-            this.value = value;
-            this.prev = top;
+    public int[] toArray(){
+        checkIfEmpty();
+        int currentSize= this.size;
+        int[] array = new int[currentSize];
+        for (int i = 0; i < currentSize; i++) {
+           array[i] = this.pop();
         }
+        return array;
+    }
 
-
+    private void checkIfEmpty() {
+        if (isEmpty()) {
+            throw new IllegalStateException("No elements");
+        }
     }
 
 }
