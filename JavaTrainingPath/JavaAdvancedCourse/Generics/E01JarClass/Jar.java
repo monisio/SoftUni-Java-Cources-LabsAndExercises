@@ -4,7 +4,7 @@ package JavaAdvancedCourse.Generics.E01JarClass;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Jar <T> {
+public class Jar<T> {
 
    private final List<T> containment;
 
