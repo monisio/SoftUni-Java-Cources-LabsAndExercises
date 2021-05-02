@@ -1,6 +1,6 @@
 package JavaAdvancedCourse.Generics.E05GenericBox;
 
-public class Box<T> {
+public class Box<T extends Comparable<T>> implements Comparable<T> {
 
    private T contain;
 
@@ -9,7 +9,7 @@ public class Box<T> {
     }
 
     public T getContain() {
-        return contain;
+        return this.contain;
     }
 
     public void setContain(T contain) {
@@ -19,5 +19,11 @@ public class Box<T> {
     @Override
     public String toString() {
         return contain.getClass().getName() + ": "+ this.contain;
+    }
+
+
+    @Override
+    public int compareTo(T o) {
+        return this.contain.compareTo(o);
     }
 }
