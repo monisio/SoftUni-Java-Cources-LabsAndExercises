@@ -25,7 +25,7 @@ public class Main {
 
         Double element = Double.parseDouble(scanner.nextLine());
 
-        System.out.println(Compare.countOfSimilar(listOfBoxes, element));
+        System.out.println(Count.countOfSimilar(listOfBoxes, element));
 
 
     }

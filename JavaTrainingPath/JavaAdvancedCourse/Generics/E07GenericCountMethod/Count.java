@@ -4,7 +4,7 @@ import JavaAdvancedCourse.Generics.E05GenericBox.Box;
 
 import java.util.List;
 
-public class Compare {
+public class Count {
 
     public static <T extends Comparable<T>> int countOfSimilar(List<Box<T>> list, T element) {
 
