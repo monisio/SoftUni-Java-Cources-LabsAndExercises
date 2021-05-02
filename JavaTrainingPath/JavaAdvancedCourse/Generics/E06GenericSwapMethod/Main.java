@@ -2,10 +2,7 @@ package JavaAdvancedCourse.Generics.E06GenericSwapMethod;
 
 import JavaAdvancedCourse.Generics.E05GenericBox.Box;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {

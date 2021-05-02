@@ -1,4 +1,4 @@
-package JavaAdvancedCourse.Generics.GenericCustomList;
+package JavaAdvancedCourse.Generics.E08GenericCustomList;
 
 import JavaAdvancedCourse.Generics.E04ListUtils.ListUtils;
 import JavaAdvancedCourse.Generics.E06GenericSwapMethod.SwapList;
@@ -9,6 +9,10 @@ import java.util.List;
 public class CustomList<T extends Comparable<T>> {
 
     private List<T> elements;
+
+    public List<T> getElements(){
+        return this.elements;
+    }
 
     public CustomList(){
        this.elements = new ArrayList<>();
