@@ -8,6 +8,7 @@ public class ListSorter {
 
    public static <T extends Comparable<T>> void sort(CustomList<T> list){
       Collections.sort(list.getElements());
+
    }
 
 }

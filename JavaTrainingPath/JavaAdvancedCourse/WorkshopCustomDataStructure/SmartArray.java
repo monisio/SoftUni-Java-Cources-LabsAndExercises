@@ -2,7 +2,7 @@ package JavaAdvancedCourse.WorkshopCustomDataStructure;
 
 import java.util.function.Consumer;
 
-public class SmartArray {
+public class SmartArray  {
 
     private static final int INITIAL_CAPACITY = 8;
 
@@ -11,7 +11,7 @@ public class SmartArray {
     private int size;
     private int capacity;
 
-    public SmartArray() {
+    public SmartArray()   {
         this.elements = new int[INITIAL_CAPACITY];
         this.size = 0;
         this.capacity = INITIAL_CAPACITY;
