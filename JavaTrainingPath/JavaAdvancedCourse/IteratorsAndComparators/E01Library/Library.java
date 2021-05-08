@@ -1,7 +1,9 @@
 package JavaAdvancedCourse.IteratorsAndComparators.E01Library;
 
-import java.util.*;
-import java.util.function.Consumer;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
 
 public class Library implements Iterable<Book>{
 
@@ -28,12 +30,7 @@ public class Library implements Iterable<Book>{
         return new libIterator() ;
     }
 
-    @Override
-    public void forEach(Consumer<? super Book> action) {
-        for (Book book : this.library) {
-            action.accept(book);
-        }
-    }
+
 
 
     private class libIterator implements Iterator<Book> {
