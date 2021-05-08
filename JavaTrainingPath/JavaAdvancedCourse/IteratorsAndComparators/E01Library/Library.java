@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
-public class Library implements Iterable<Book>{
+public class Library implements Iterable<Book> {
 
     private List<Book> library;
 
@@ -21,9 +21,10 @@ public class Library implements Iterable<Book>{
         this.library.add(book);
     }
 
-    public void addBooks(Book... book){
-        this.library.addAll(Arrays.asList(book));
+    public List<Book> getBooks(){
+        return this.library;
     }
+
 
     @Override
     public Iterator<Book> iterator() {
