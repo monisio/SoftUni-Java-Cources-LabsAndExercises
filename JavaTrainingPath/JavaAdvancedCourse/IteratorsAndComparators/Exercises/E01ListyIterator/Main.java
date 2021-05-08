@@ -10,7 +10,7 @@ public class Main {
 
         String[] create = scanner.nextLine().split("\\s");
 
-        ListyIterator<String> test = null;
+        ListyIterator<String> test ;
 
 
         if (create.length > 1) {
@@ -24,9 +24,8 @@ public class Main {
 
 
         while (!input.equals("END")) {
-            String[] tokens = input.split("\\s+");
 
-            switch (tokens[0]) {
+            switch (input) {
 
 
                 case "Move":
@@ -41,12 +40,15 @@ public class Main {
                     System.out.println(test.HasNext());
                     break;
 
-
+                case "PrintAll":
+                    test.PrintAll();
             }
 
 
             input = scanner.nextLine();
         }
+
+
 
 
     }
