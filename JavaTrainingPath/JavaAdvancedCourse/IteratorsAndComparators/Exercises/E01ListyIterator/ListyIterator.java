@@ -28,15 +28,19 @@ public class ListyIterator<String> implements Iterable<String> {
         return counter < data.size() - 1;
     }
 
-
-    public void Print() {
-        if (data.isEmpty()) {
+    private void isEmptyCheck(){
+        if(data.isEmpty()){
             throw new IllegalStateException("Invalid Operation!");
         }
+    }
+
+    public void Print() {
+        isEmptyCheck();
         System.out.println(this.data.get(counter));
     }
 
     public void PrintAll() {
+        isEmptyCheck();
         for (String string : this) {
             System.out.print(string + " ");
         }

@@ -33,7 +33,11 @@ public class Main {
                     break;
 
                 case "Print":
-                    test.Print();
+                     try {
+                         test.Print();
+                     }catch (IllegalStateException e){
+                         System.out.println(e.getMessage());
+                     }
                     break;
 
                 case "HasNext":
@@ -41,7 +45,12 @@ public class Main {
                     break;
 
                 case "PrintAll":
-                    test.PrintAll();
+                    try {
+                        test.PrintAll();
+                    }catch (IllegalStateException e){
+                        System.out.println(e.getMessage());
+                    }
+
             }
 
 
