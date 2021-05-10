@@ -30,7 +30,6 @@ public class Lake<Integer> implements Iterable<Integer> {
        private final int lastEvenIndex = lake.size()%2==0 ?  lake.size()-2 : lake.size()-1;
 
 
-
         @Override
         public boolean hasNext() {
             return counter < lake.size();
