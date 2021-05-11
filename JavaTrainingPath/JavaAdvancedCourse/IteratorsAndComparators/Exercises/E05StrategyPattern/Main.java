@@ -10,10 +10,10 @@ public class Main {
 
         int n = Integer.parseInt(scanner.nextLine());
 
-        Set<Person> personSetByAge = new TreeSet<>(new ComparatorByAge());
         Set<Person> personSetByName = new TreeSet<>(new ComparatorByName());
+        Set<Person> personSetByAge = new TreeSet<>(new ComparatorByAge());
 
-        while (n-- >= 0) {
+        while (n-->0) {
 
             String[] tokens = scanner.nextLine().split("\\s");
 
@@ -23,6 +23,12 @@ public class Main {
 
         }
 
+        for (Person person : personSetByName) {
+            System.out.println(person.getName() +" "+ person.getAge());
+        }
 
+        for (Person person : personSetByAge) {
+            System.out.println(person.getName()+" "+ person.getAge());
+        }
     }
 }
