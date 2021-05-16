@@ -23,6 +23,7 @@ public class Main {
             int y = Integer.parseInt(pointInfo[1]);
             Point forCheck = new Point(x,y);
 
+            System.out.println(rectangle.contain(forCheck));
 
         }
 

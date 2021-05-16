@@ -20,6 +20,14 @@ public class Point  {
 
 
 
+    public int compareX(int x){
 
+        return  this.x - x;
+
+    }
+
+    public int compareY(int y){
+        return this.y - y;
+    }
 
 }
