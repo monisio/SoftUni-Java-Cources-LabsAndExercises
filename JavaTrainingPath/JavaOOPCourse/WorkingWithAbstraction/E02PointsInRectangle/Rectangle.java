@@ -11,9 +11,6 @@ public class Rectangle {
         this.topRight = upperRight;
     }
 
-    public boolean contains(Point point){
-       return this.bottomLeft.compareTo(point)<=0 && this.topRight.compareTo(point)>=0;
-    }
 
 
 }
