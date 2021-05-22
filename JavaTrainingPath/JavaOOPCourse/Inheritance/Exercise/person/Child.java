@@ -1,4 +1,4 @@
-package JavaOOPCourse.Inheritance.Exercise.Person;
+package JavaOOPCourse.Inheritance.Exercise.person;
 
 public class Child extends Person {
 
