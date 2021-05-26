@@ -1,5 +1,7 @@
 package JavaOOPCourse.Encapsulation.SortByNameAndAge;
 
+import JavaOOPCourse.Encapsulation.FirstAndReserveTeam.Team;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -30,9 +32,21 @@ public class Main {
             }
         });
 
+//        for (Person person : people) {
+//            System.out.println(person.toString());
+//        }
+
+        Team team = new Team("Black Eagles");
+
         for (Person person : people) {
-            System.out.println(person.toString());
+             team.addPlayer(person);
         }
+
+
+
+
+        System.out.printf("First team %d players%n",team.getFirstTeam().size());
+        System.out.printf("Reserve team have %d players%n", team.getReserveTeam().size());
     }
 
 }
