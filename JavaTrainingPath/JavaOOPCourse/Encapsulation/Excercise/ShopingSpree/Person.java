@@ -3,16 +3,9 @@ package JavaOOPCourse.Encapsulation.Excercise.ShopingSpree;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Person {
-    //     -	name: String
-//        -	money:  double
-//        -	products:  List<Product>
-//+ 	Person (String ,  double)
-//        -	setName (String) : void
-//        -	setMoney (double) : void
-//        +	buyProduct (Product) : void
-//        +	getName(): String
 
     private String name;
     private double money;
@@ -51,13 +44,22 @@ public class Person {
         }
         setMoney(calculation);
         this.products.add(product);
+        System.out.printf("%s bought %s%n", this.name ,product.getName());
 
     }
 
+    private String productStatusMessage(){
+        if (this.products.isEmpty()){
+            return "Nothing bought";
+        }
+        List<String> productsNames = this.products.stream().map(Product::getName).collect(Collectors.toList());
+        return productsNames.toString().replaceAll("[\\[\\]]", "");
+
+    }
 
     @Override
     public String toString() {
-        return this.name + " - " + (products.isEmpty() ? "Nothing bought" : products.stream().map(Product::getName).toString());
+        return this.name + " - " + productStatusMessage();
     }
 }
 
