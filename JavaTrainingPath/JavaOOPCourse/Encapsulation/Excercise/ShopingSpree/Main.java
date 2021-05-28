@@ -37,12 +37,10 @@ public class Main {
 
             Person person = personMap.get(personName);
             Product product = productMap.get(productName);
-            try{
 
-                person.buyProduct(product);
-            }catch (Exception e){
-                System.out.println(e.getMessage());
-            }
+
+            person.buyProduct(product);
+
 
             input = scanner.nextLine();
         }
