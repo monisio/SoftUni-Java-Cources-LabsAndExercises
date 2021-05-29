@@ -44,17 +44,17 @@ public class Topping {
         this.weight = weight;
     }
 
-    private void checkToppingData(String topingName) {
+    private void checkToppingData(String toppingName) {
         try {
-            ToppingsTypes.valueOf(topingName.toUpperCase());
+            ToppingsTypes.valueOf(toppingName.toUpperCase());
         } catch (Exception e) {
-            throw new IllegalStateException("Cannot place " + topingName + " on top of your pizza.");
+            throw new IllegalStateException("Cannot place " + toppingName + " on top of your pizza.");
         }
     }
 
     public double calculateCalories() {
         return (BASE_CALORIES_MODIFIER * this.weight)
-                * ToppingsTypes.valueOf(this.toppingName.toUpperCase()).modifier;
+                * ToppingsTypes.valueOf(this.toppingName.toUpperCase()).getModifier();
     }
 
 }

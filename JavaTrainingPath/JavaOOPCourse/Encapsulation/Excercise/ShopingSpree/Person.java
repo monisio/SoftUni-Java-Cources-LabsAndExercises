@@ -14,11 +14,11 @@ public class Person {
     public Person(String name, double money) {
         setName(name);
         setMoney(money);
-        this.products= new ArrayList<>();
+        this.products = new ArrayList<>();
     }
 
     private void setName(String name) {
-        if (name == null || name.equals(" ")) {
+        if (name == null || name.trim().isEmpty()) {
             throw new IllegalStateException("Name cannot be empty");
         }
 
@@ -41,17 +41,17 @@ public class Person {
         double calculation = this.money - cost;
         if (calculation < 0) {
             System.out.printf("%s can't afford %s%n", this.name, product.getName());
-        }else{
+        } else {
             setMoney(calculation);
             this.products.add(product);
-            System.out.printf("%s bought %s%n", this.name ,product.getName());
+            System.out.printf("%s bought %s%n", this.name, product.getName());
 
         }
 
     }
 
-    private String productStatusMessage(){
-        if (this.products.isEmpty()){
+    private String productStatusMessage() {
+        if (this.products.isEmpty()) {
             return "Nothing bought";
         }
         List<String> productsNames = this.products.stream().map(Product::getName).collect(Collectors.toList());

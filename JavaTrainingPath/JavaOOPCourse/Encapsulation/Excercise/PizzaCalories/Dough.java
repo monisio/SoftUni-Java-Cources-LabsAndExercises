@@ -11,10 +11,8 @@ public class Dough {
     private enum DoughTypes {
 
         WHITE(1.5),
-        WHOLEGRAIN(1.0),
-        CRISPY(0.9),
-        CHEWY(1.1),
-        HOMEMADE(1.0);
+        WHOLEGRAIN(1.0);
+
 
         private double modifier;
 
@@ -23,6 +21,22 @@ public class Dough {
         }
 
         private double getModifier() {
+            return this.modifier;
+        }
+    }
+
+    private enum BakeTypes {
+        CRISPY(0.9),
+        CHEWY(1.1),
+        HOMEMADE(1.0);
+
+        private double modifier;
+
+        BakeTypes(double modifier) {
+            this.modifier = modifier;
+        }
+
+        private double getModifier(){
             return this.modifier;
         }
     }
@@ -41,7 +55,7 @@ public class Dough {
     }
 
     private void setBakingTechnique(String bakingTechnique) {
-        checkDoughData(bakingTechnique);
+        checkBakingTechnique(bakingTechnique);
         this.bakingTechnique = bakingTechnique;
 
     }
@@ -53,19 +67,31 @@ public class Dough {
         this.weight = weight;
     }
 
+    private void checkBakingTechnique(String bakingTechnique){
+        try{
+            BakeTypes.valueOf(bakingTechnique.toUpperCase());
+        }catch (Exception e){
+            doughError();
+        }
+    }
+
     private void checkDoughData(String data) {
         try {
             DoughTypes.valueOf(data.toUpperCase());
         } catch (Exception e) {
-            throw new IllegalArgumentException("Invalid type of dough.");
+           doughError();
         }
 
     }
 
     public double calculateCalories() {
         return (BASE_CALORIES_MODIFIER * this.weight)
-                * DoughTypes.valueOf(this.flourType.toUpperCase()).modifier
-                * DoughTypes.valueOf(this.bakingTechnique.toUpperCase()).modifier;
+                * DoughTypes.valueOf(this.flourType.toUpperCase()).getModifier()
+                * BakeTypes.valueOf(this.bakingTechnique.toUpperCase()).getModifier();
+    }
+
+    private void doughError(){
+        throw new IllegalArgumentException("Invalid type of dough.");
     }
 
 }

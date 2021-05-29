@@ -16,12 +16,16 @@ public class Pizza {
     }
 
     private void setToppings(int n) {
-       checkToppingsNumber(n);
+        if (n < 0||n>10){
+            throw new IllegalStateException("Number of toppings should be in range [0..10].");
+        }
         this.toppings = new ArrayList<>(n);
     }
 
     private void setName(String name) {
-        checkName(name);
+        if(name==null||name.trim().isEmpty()||name.length()>=15){
+            throw new IllegalStateException("Pizza name should be between 1 and 15 symbols.");
+        }
         this.name = name;
     }
 
@@ -46,17 +50,8 @@ public class Pizza {
     }
 
 
-    private void checkName(String name) {
-        if(name.length()<1||name.equals(" ")||name.length()>15){
-            throw new IllegalStateException("Pizza name should be between 1 and 15 symbols.");
-        }
-    }
 
-    private void checkToppingsNumber(int n) {
-        if (n < 0||n>10){
-            throw new IllegalStateException("Number of toppings should be in range [0..10].");
-        }
-    }
+
 
 
 }
