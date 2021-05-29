@@ -27,7 +27,7 @@ public class Topping {
 
     public Topping(String toppingName, double weight) {
         setToppingName(toppingName);
-        setWeight(weight, toppingName);
+        setWeight(weight);
 
     }
 
@@ -37,9 +37,9 @@ public class Topping {
         this.toppingName = toppingName;
     }
 
-    private void setWeight(double weight, String toppingName) {
+    private void setWeight(double weight) {
         if (weight < 1 || weight > 50) {
-            throw new IllegalStateException(toppingName + " weight should be in the range [1..50].");
+            throw new IllegalStateException(this.toppingName + " weight should be in the range [1..50].");
         }
         this.weight = weight;
     }

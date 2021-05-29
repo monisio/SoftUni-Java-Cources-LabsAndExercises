@@ -12,18 +12,19 @@ public class Pizza {
 
     public Pizza(String name, int numberOfToppings) {
         setName(name);
+        this.dough = null;
         setToppings(numberOfToppings);
     }
 
     private void setToppings(int n) {
-        if (n < 0||n>10){
+        if (n < 0 || n > 10) {
             throw new IllegalStateException("Number of toppings should be in range [0..10].");
         }
         this.toppings = new ArrayList<>(n);
     }
 
     private void setName(String name) {
-        if(name==null||name.trim().isEmpty()||name.length()>=15){
+        if (name == null || name.trim().isEmpty() || name.length() >= 15) {
             throw new IllegalStateException("Pizza name should be between 1 and 15 symbols.");
         }
         this.name = name;
@@ -48,10 +49,6 @@ public class Pizza {
                 .sum();
         return this.dough.calculateCalories() + sum;
     }
-
-
-
-
 
 
 }

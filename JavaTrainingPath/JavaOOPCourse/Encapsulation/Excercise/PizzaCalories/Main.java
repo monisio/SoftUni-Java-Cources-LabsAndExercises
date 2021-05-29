@@ -8,7 +8,7 @@ public class Main {
 
         String[] info = scanner.nextLine().split("\\s+");
 
-        String pizzaName = info[1].trim();
+        String pizzaName = info[1];
         int n = Integer.parseInt(info[2]);
 
         Pizza pizza = new Pizza(pizzaName, n);
@@ -22,7 +22,7 @@ public class Main {
         while (!input.equals("END")) {
             String[] toppingInfo = input.split("\\s+");
 
-            pizza.addTopping(new Topping(toppingInfo[1].trim(), Double.parseDouble(toppingInfo[2])));
+            pizza.addTopping(new Topping(toppingInfo[1], Double.parseDouble(toppingInfo[2])));
 
             input = scanner.nextLine();
         }
