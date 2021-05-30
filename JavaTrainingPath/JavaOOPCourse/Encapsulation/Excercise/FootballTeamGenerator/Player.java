@@ -1,21 +1,6 @@
 package JavaOOPCourse.Encapsulation.Excercise.FootballTeamGenerator;
 
 public class Player {
-    //-	name: String
-    //-	endurance:  int
-    //-	sprint:  int
-    //-	dribble: int
-    //-	passing: int
-    //-	shooting: int
-    //+ 	Player (String, int, int, int, int, int)
-    //-	setName(String) : void
-    //+	getName(): String
-    //-	setEndurance (int) : void
-    //-	setSprint (int) : void
-    //-	setDribble (int) : void
-    //-	setPassing (int) : void
-    //-	setShooting (int) : void
-    //+	overallSkillLevel() : double
 
     private String name;
     private int endurance;
