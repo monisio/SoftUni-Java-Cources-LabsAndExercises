@@ -11,7 +11,6 @@ public class Main {
         printCarInfo(seat);
         printCarInfo(audi);
 
-
     }
 
 
