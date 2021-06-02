@@ -1,4 +1,4 @@
-package JavaOOPCourse.InterfacesAndAbstraction.CarShop;
+package JavaOOPCourse.InterfacesAndAbstraction.E01CarShop;
 
 public class Main {
     public static void main(String[] args) {

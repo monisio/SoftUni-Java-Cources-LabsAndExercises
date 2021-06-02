@@ -1,4 +1,4 @@
-package JavaOOPCourse.InterfacesAndAbstraction.CarShop;
+package JavaOOPCourse.InterfacesAndAbstraction.E01CarShop;
 
 public class Seat implements Car {
 
@@ -14,19 +14,19 @@ public class Seat implements Car {
         setCountryProduced(countryProduced);
     }
 
-    public void setModel(String model) {
+    private void setModel(String model) {
         this.model = model;
     }
 
-    public void setColor(String color) {
+    private void setColor(String color) {
         this.color = color;
     }
 
-    public void setHorsePower(Integer horsePower) {
+    private void setHorsePower(Integer horsePower) {
         this.horsePower = horsePower;
     }
 
-    public void setCountryProduced(String countryProduced) {
+    private void setCountryProduced(String countryProduced) {
         this.countryProduced = countryProduced;
     }
 

@@ -1,4 +1,4 @@
-package JavaOOPCourse.InterfacesAndAbstraction.CarShop;
+package JavaOOPCourse.InterfacesAndAbstraction.E01CarShop;
 
 import java.io.Serializable;
 
