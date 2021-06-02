@@ -1,17 +1,14 @@
 package JavaOOPCourse.InterfacesAndAbstraction.E03SayHello;
 
-public class Bulgarian implements  Person{
+import JavaOOPCourse.InterfacesAndAbstraction.E04SayHelloExtended.BasePerson;
 
-   private String name;
+public class Bulgarian extends BasePerson implements Person {
 
-   public Bulgarian(String name){
-       this.name=name;
-   }
 
-    @Override
-    public String getName() {
-        return this.name;
+    public Bulgarian(String name) {
+        super(name);
     }
+
 
     @Override
     public String sayHello() {

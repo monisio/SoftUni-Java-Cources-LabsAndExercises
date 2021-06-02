@@ -1,14 +1,13 @@
 package JavaOOPCourse.InterfacesAndAbstraction.E03SayHello;
 
-public class European implements Person{
-    private String name;
+import JavaOOPCourse.InterfacesAndAbstraction.E04SayHelloExtended.BasePerson;
+
+public class European extends BasePerson implements Person{
+
 
     public European(String name){
-        this.name= name;
+        super(name);
     }
 
-    @Override
-    public String getName() {
-        return null;
-    }
+
 }

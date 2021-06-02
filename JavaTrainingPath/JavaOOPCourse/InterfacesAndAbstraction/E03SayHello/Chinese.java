@@ -1,20 +1,16 @@
 package JavaOOPCourse.InterfacesAndAbstraction.E03SayHello;
 
-public class Chinese implements Person{
+import JavaOOPCourse.InterfacesAndAbstraction.E04SayHelloExtended.BasePerson;
 
-    private String name;
+public class Chinese extends BasePerson implements Person{
+
+
 
     public Chinese(String name){
-        this.name=name;
+        super(name);
     }
 
-    @Override
-    public String getName() {
-        return null;
-    }
 
-    @Override
-    public String sayHello() {
-        return "Djydjybydjy";
-    }
+
+
 }
