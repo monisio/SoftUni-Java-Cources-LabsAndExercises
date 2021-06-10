@@ -1,5 +1,7 @@
 package JavaOOPCourse.Polymorphism.Exercise.E01Vehicles;
 
+import JavaOOPCourse.Polymorphism.Exercise.E02VehicleExtended.Bus;
+
 import java.util.Scanner;
 
 public class Main {
@@ -8,33 +10,47 @@ public class Main {
 
         String[] inputCar = scanner.nextLine().split("\\s+");
         String[] inputTruck = scanner.nextLine().split("\\s+");
+        String[] inputBus = scanner.nextLine().split("\\s+");
 
-
-        Vehicle car = new Car(Double.parseDouble(inputCar[1]), Double.parseDouble(inputCar[2]));
-        Vehicle truck = new Truck(Double.parseDouble(inputTruck[1]), Double.parseDouble(inputTruck[2]));
+        Vehicle car = new Car(Double.parseDouble(inputCar[1]), Double.parseDouble(inputCar[2]), Double.parseDouble(inputCar[3]));
+        Vehicle truck = new Truck(Double.parseDouble(inputTruck[1]), Double.parseDouble(inputTruck[2]), Double.parseDouble(inputTruck[3]));
+        Bus bus = new Bus(Double.parseDouble(inputBus[1]), Double.parseDouble(inputBus[2]), Double.parseDouble(inputBus[3]));
 
         int n = Integer.parseInt(scanner.nextLine());
 
 
         for (int i = 0; i < n; i++) {
             String[] token = scanner.nextLine().split("\\s+");
-            double value =Double.parseDouble(token[2]);
+            String command = token[0];
+            double value = Double.parseDouble(token[2]);
 
-            switch (token[0]) {
-                case "Drive":
-                    if (token[1].equals("Car")) {
-                        drive(car, value);
+            switch (token[1]) {
+                case "Truck":
+                    if (command.equals("Drive")) {
+                        System.out.println(truck.drive(value));
                     } else {
-                        drive(truck, value);
+                        truck.refuel(value);
                     }
 
                     break;
-                case "Refuel":
 
-                    if (token[1].equals("Car")) {
-                        refuel(car, value);
-                    } else {
-                        refuel(truck, value);
+                case "Car":
+                    if(command.equals("Drive")){
+                        System.out.println(car.drive(value));
+                    }else{
+                        car.refuel(value);
+
+                    }
+
+                    break;
+                case "Bus":
+
+                    if (command.equals("DriveEmpty")){
+                        System.out.println(bus.drive(value, true));
+                    }else if (command.equals("Drive")){
+                        System.out.println(bus.drive(value));
+                    }else if (command.equals("Refuel")){
+                        bus.refuel(value);
                     }
 
 
@@ -47,18 +63,10 @@ public class Main {
 
 
         System.out.println(car.toString());
+
         System.out.println(truck.toString());
-
+        System.out.println(bus.toString());
     }
 
 
-    public static void drive(Vehicle vehicle, double distance) {
-        vehicle.drive(distance);
-
-    }
-
-    public static void refuel(Vehicle vehicle, double quantity) {
-        vehicle.refuel(quantity);
-
-    }
 }
