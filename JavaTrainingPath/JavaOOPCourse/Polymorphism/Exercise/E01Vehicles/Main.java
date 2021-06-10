@@ -1,6 +1,6 @@
 package JavaOOPCourse.Polymorphism.Exercise.E01Vehicles;
 
-import JavaOOPCourse.Polymorphism.Exercise.E02VehicleExtended.Bus;
+import JavaOOPCourse.Polymorphism.Exercise.E02VehicleExtension.Bus;
 
 import java.util.Scanner;
 

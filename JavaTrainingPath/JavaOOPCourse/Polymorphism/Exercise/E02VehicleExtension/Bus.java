@@ -1,4 +1,4 @@
-package JavaOOPCourse.Polymorphism.Exercise.E02VehicleExtended;
+package JavaOOPCourse.Polymorphism.Exercise.E02VehicleExtension;
 
 import JavaOOPCourse.Polymorphism.Exercise.E01Vehicles.Vehicle;
 
