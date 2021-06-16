@@ -1,7 +1,5 @@
 package JavaOOPCourse.SOLID.E01Logger.Classes.Implementation.Layouts;
 
-import JavaOOPCourse.SOLID.E01Logger.Classes.Abstraction.Layout;
-
 public class SimpleLayout implements Layout {
 
     @Override

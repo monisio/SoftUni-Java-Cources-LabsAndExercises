@@ -1,9 +1,8 @@
 package JavaOOPCourse.SOLID.E01Logger.Classes.Implementation.Appenders;
 
-import JavaOOPCourse.SOLID.E01Logger.Classes.Abstraction.Appender;
-import JavaOOPCourse.SOLID.E01Logger.Classes.Abstraction.Layout;
+import JavaOOPCourse.SOLID.E01Logger.Classes.Implementation.Layouts.Layout;
 
-public class ConsoleAppender extends Appender {
+public class ConsoleAppender extends BaseAppender {
 
 
     public ConsoleAppender(Layout layout) {
