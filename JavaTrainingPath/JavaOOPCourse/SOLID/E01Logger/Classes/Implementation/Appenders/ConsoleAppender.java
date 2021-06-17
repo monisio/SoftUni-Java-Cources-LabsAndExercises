@@ -11,9 +11,13 @@ public class ConsoleAppender extends BaseAppender {
 
     @Override
     public void append(String date, String message, String level) {
-        String formatMessage = layout.format(date, message, level);
-        System.out.println(formatMessage);
+       if( checkReportLevelApplicable(level)){
+           String formatMessage = layout.format(date, message, level);
+           System.out.println(formatMessage);
+       }
     }
+
+
 
 
 }

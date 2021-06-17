@@ -18,7 +18,12 @@ public class FileAppender extends BaseAppender{
 
     @Override
     public void append(String date, String message, String type) {
-        String formatted = layout.format(date, message, type);
-        file.write(formatted);
+        if(checkReportLevelApplicable(type)){
+            String formatted = layout.format(date, message, type);
+            file.write(formatted);
+        }
+
     }
+
+
 }

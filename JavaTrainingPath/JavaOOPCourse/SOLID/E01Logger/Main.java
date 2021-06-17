@@ -6,19 +6,21 @@ import JavaOOPCourse.SOLID.E01Logger.Classes.Implementation.Appenders.FileAppend
 import JavaOOPCourse.SOLID.E01Logger.Classes.Implementation.Files.File;
 import JavaOOPCourse.SOLID.E01Logger.Classes.Implementation.Files.LogFile;
 import JavaOOPCourse.SOLID.E01Logger.Classes.Implementation.Layouts.Layout;
-import JavaOOPCourse.SOLID.E01Logger.Classes.Implementation.Layouts.SimpleLayout;
+import JavaOOPCourse.SOLID.E01Logger.Classes.Implementation.Layouts.XmlLayout;
 import JavaOOPCourse.SOLID.E01Logger.Classes.Implementation.Loggers.Logger;
 import JavaOOPCourse.SOLID.E01Logger.Classes.Implementation.Loggers.MessageLogger;
 
 public class Main {
     public static void main(String[] args) {
 
-        Layout simpleLayout = new SimpleLayout();
+        Layout simpleLayout = new XmlLayout();
         Appender consoleAppender = new ConsoleAppender(simpleLayout);
 
         File file = new LogFile();
         Appender fileAppender = new FileAppender(simpleLayout);
         ((FileAppender) fileAppender).setFile(file);
+
+
 
         Logger logger = new MessageLogger(consoleAppender, fileAppender);
 
