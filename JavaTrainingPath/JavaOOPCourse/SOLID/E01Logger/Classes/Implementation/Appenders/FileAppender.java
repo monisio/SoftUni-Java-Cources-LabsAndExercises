@@ -2,6 +2,7 @@ package JavaOOPCourse.SOLID.E01Logger.Classes.Implementation.Appenders;
 
 
 import JavaOOPCourse.SOLID.E01Logger.Classes.Implementation.Files.File;
+import JavaOOPCourse.SOLID.E01Logger.Classes.Implementation.Files.LogFile;
 import JavaOOPCourse.SOLID.E01Logger.Classes.Implementation.Layouts.Layout;
 
 public class FileAppender extends BaseAppender{
@@ -10,6 +11,7 @@ public class FileAppender extends BaseAppender{
 
     public FileAppender(Layout layout) {
         super(layout);
+        file= new LogFile();
     }
 
     public void setFile(File file) {

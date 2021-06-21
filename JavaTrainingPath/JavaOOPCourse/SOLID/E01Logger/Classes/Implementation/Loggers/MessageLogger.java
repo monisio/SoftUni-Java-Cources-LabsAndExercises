@@ -42,4 +42,24 @@ public class MessageLogger extends BaseLogger {
     }
 
 
+    @Override
+    public void inputLog(String input) {
+        String [] inputTokens = input.split("\\|");
+        String level = inputTokens[0];
+        String time = inputTokens[1];
+        String message= inputTokens[2];
+
+
+        if(level.equals("INFO")){
+            logInfo(time, message);
+        }else if(level.equals("WARNING")){
+            logWarning(time, message);
+        }else if(level.equals("ERROR")){
+            logError(time, message);
+        }else if(level.equals("CRITICAL")){
+            logCritical(time, message);
+        }else if(level.equals("FATAL")){
+            logFatal(time, message);
+        }
+    }
 }
