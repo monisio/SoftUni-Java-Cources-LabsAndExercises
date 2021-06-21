@@ -1,4 +1,4 @@
-package JavaOOPCourse.ReflectionAndAnnotations.Lab.E02;
+package JavaOOPCourse.ReflectionAndAnnotations.Lab.E02GettersAndSetters;
 
 import JavaOOPCourse.ReflectionAndAnnotations.Lab.Reflection;
 
