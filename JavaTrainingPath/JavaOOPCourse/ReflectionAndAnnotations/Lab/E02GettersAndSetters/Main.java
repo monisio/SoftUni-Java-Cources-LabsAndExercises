@@ -3,12 +3,11 @@ package JavaOOPCourse.ReflectionAndAnnotations.Lab.E02GettersAndSetters;
 import JavaOOPCourse.ReflectionAndAnnotations.Lab.Reflection;
 
 import java.lang.reflect.Method;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class GettersAndSetters {
+public class Main {
     public static void main(String[] args) throws Exception {
 
             Class<Reflection> clazz = Reflection.class;
@@ -28,8 +27,8 @@ public class GettersAndSetters {
 
         }
 
-        getters.forEach(m-> System.out.println(m.getName()+ " will return " + m.getReturnType().getSimpleName()));
-        setters.forEach(m-> System.out.println(m.getName()+ " will set field of type " + Arrays.toString(m.getParameterTypes()).replaceAll("[\\[\\]]","")));
+        getters.forEach(m-> System.out.println(m.getName()+ " will return " + m.getReturnType().getName()));
+        setters.forEach(m-> System.out.println(m.getName()+ " will set field of type " + m.getParameterTypes()[0]));
 
     }
 }

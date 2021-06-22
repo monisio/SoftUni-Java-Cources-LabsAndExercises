@@ -8,19 +8,19 @@ import java.lang.reflect.Modifier;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class HighQualityMistakes {
+public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         Class clazz = Reflection.class;
 
 
-        Field[] fields = clazz.getFields();
+        Field[] fields = clazz.getDeclaredFields();
 
-        Method[] getters = Arrays.stream(clazz.getMethods())
+        Method[] getters = Arrays.stream(clazz.getDeclaredMethods())
                 .filter(method -> method.getName().contains("get"))
                 .toArray(Method[]::new);
-        Method[] setters = Arrays.stream(clazz.getMethods())
+        Method[] setters = Arrays.stream(clazz.getDeclaredMethods())
                 .filter(method -> method.getName().contains("set"))
                 .toArray(Method[]::new);
 
@@ -36,7 +36,7 @@ public class HighQualityMistakes {
 
         Arrays.stream(setters)
                 .filter(method -> !Modifier.isPrivate(method.getModifiers()))
-                .forEach(method -> System.out.println( method.getName() + " must be private!"));
+                .forEach(method -> System.out.println( method.getName() + " have to be private!"));
 
 
     }
