@@ -1,5 +1,7 @@
 package JavaOOPCourse.ReflectionAndAnnotations.Lab.E04Annotations;
 
+import JavaOOPCourse.ReflectionAndAnnotations.Lab.Reflection;
+
 import java.util.Arrays;
 
 public class Main {
@@ -10,6 +12,8 @@ public class Main {
         String[] categories = annotation.categories();
 
         Arrays.stream(annotation.categories()).forEach(System.out::println);
+
+        Tracker.printMethodByAuthor(Reflection.class, "Moni");
 
     }
 
