@@ -1,4 +1,4 @@
-package JavaAdvancedCourse.StackAndQuеue.Excersice;
+package JavaAdvancedCourse.StackAndQueue.Excersice;
 
 import java.util.ArrayDeque;
 import java.util.Arrays;

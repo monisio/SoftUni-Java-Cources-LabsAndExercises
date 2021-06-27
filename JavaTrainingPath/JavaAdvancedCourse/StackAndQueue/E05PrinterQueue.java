@@ -1,4 +1,4 @@
-package JavaAdvancedCourse.StackAndQuеue;
+package JavaAdvancedCourse.StackAndQueue;
 
 import java.util.ArrayDeque;
 import java.util.Scanner;
