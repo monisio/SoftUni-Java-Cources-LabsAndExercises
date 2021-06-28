@@ -1,15 +1,27 @@
 package JavaOOPCourse.ReflectionAndAnnotations.Excercise.Skeletons.barracksWars.core.commands;
 
+import JavaOOPCourse.ReflectionAndAnnotations.Excercise.Skeletons.barracksWars.interfaces.Inject;
 import JavaOOPCourse.ReflectionAndAnnotations.Excercise.Skeletons.barracksWars.interfaces.Repository;
 import JavaOOPCourse.ReflectionAndAnnotations.Excercise.Skeletons.barracksWars.interfaces.Unit;
 import JavaOOPCourse.ReflectionAndAnnotations.Excercise.Skeletons.barracksWars.interfaces.UnitFactory;
 import jdk.jshell.spi.ExecutionControl;
 
-public class AddCommand extends Command{
+public class AddCommand extends Command {
 
+    @Inject
+    private Repository repository;
+
+    @Inject
+    private UnitFactory unitFactory;
+
+    public AddCommand(String[]data){
+        super(data);
+    }
 
     public AddCommand(String[] data, Repository repository, UnitFactory unitFactory) {
-        super(data, repository, unitFactory);
+        super(data);
+        this.repository = repository;
+        this.unitFactory = unitFactory;
     }
 
 
@@ -20,8 +32,8 @@ public class AddCommand extends Command{
 
     private String addUnitCommand(String[] data) throws ExecutionControl.NotImplementedException {
         String unitType = data[1];
-        Unit unitToAdd = this.getUnitFactory().createUnit(unitType);
-        this. getRepository().addUnit(unitToAdd);
+        Unit unitToAdd = this.unitFactory.createUnit(unitType);
+        this.repository.addUnit(unitToAdd);
         String output = unitType + " added!";
         return output;
     }

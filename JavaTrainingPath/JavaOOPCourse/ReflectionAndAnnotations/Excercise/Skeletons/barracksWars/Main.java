@@ -1,5 +1,6 @@
 package JavaOOPCourse.ReflectionAndAnnotations.Excercise.Skeletons.barracksWars;
 
+import JavaOOPCourse.ReflectionAndAnnotations.Excercise.Skeletons.barracksWars.core.CommandInterpreterImpl;
 import JavaOOPCourse.ReflectionAndAnnotations.Excercise.Skeletons.barracksWars.core.Engine;
 import JavaOOPCourse.ReflectionAndAnnotations.Excercise.Skeletons.barracksWars.core.factories.UnitFactoryImpl;
 import JavaOOPCourse.ReflectionAndAnnotations.Excercise.Skeletons.barracksWars.data.UnitRepository;
@@ -13,7 +14,7 @@ public class Main {
         Repository repository = new UnitRepository();
         UnitFactory unitFactory = new UnitFactoryImpl();
 
-        Runnable engine = new Engine(repository, unitFactory);
+        Runnable engine = new Engine(new CommandInterpreterImpl(repository, unitFactory));
         engine.run();
     }
 }

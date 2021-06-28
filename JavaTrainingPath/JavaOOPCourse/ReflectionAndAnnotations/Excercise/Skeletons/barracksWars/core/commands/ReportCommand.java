@@ -1,15 +1,21 @@
 package JavaOOPCourse.ReflectionAndAnnotations.Excercise.Skeletons.barracksWars.core.commands;
 
+import JavaOOPCourse.ReflectionAndAnnotations.Excercise.Skeletons.barracksWars.interfaces.Inject;
 import JavaOOPCourse.ReflectionAndAnnotations.Excercise.Skeletons.barracksWars.interfaces.Repository;
-import JavaOOPCourse.ReflectionAndAnnotations.Excercise.Skeletons.barracksWars.interfaces.UnitFactory;
 
 import java.lang.reflect.InvocationTargetException;
 
 public class ReportCommand extends Command{
+    @Inject
+   private Repository repository;
 
+    public ReportCommand(String[]data){
+        super(data);
+    }
 
-    public ReportCommand(String[] data, Repository repository, UnitFactory unitFactory) {
-        super(data, repository, unitFactory);
+    public ReportCommand(String[] data, Repository repository) {
+        super(data);
+        this.repository = repository;
     }
 
     @Override
@@ -18,8 +24,7 @@ public class ReportCommand extends Command{
     }
 
     private String reportCommand(String[] data) {
-        String output = this.getRepository().getStatistics();
-        return output;
+        return this.repository.getStatistics();
     }
 
 
