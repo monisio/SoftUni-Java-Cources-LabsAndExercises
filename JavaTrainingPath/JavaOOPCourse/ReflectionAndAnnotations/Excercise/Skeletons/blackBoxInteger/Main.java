@@ -22,7 +22,7 @@ public class Main {
        while (!input.equals("END")){
             String[] tokens = input.split("_");
 
-            // method is extracted from Class object then inovked  on instance of the class.
+            // method is extracted from Class object then invoked  on instance of the class.
            Method declaredMethod = clazz.getDeclaredMethod(tokens[0],int.class);
            declaredMethod.setAccessible(true);
            declaredMethod.invoke(blackBoxInt , Integer.parseInt(tokens[1]));
